@@ -1,0 +1,889 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;700;900&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#050505;
+  overflow-x:hidden;
+  color:white;
+  font-family:'Montserrat', sans-serif;
+}
+
+/* Loader */
+
+#loader{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999999;
+}
+
+#loader h1{
+  font-size:90px;
+  color:white;
+  font-family:'Bebas Neue', sans-serif;
+
+  text-shadow:
+  0 0 10px red,
+  0 0 25px red,
+  0 0 60px red;
+
+  animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+
+  0%{
+    opacity:0.5;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0.5;
+  }
+}
+
+/* Background */
+
+body::before{
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:
+  radial-gradient(circle at center, rgba(255,0,0,0.12), transparent 60%);
+
+  z-index:-4;
+}
+
+/* Particles */
+
+.particles{
+  position:fixed;
+  width:100%;
+  height:100%;
+  z-index:-3;
+}
+
+.particles::before{
+  content:"";
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:white;
+  border-radius:50%;
+
+  box-shadow:
+  100px 200px white,
+  300px 500px red,
+  600px 150px white,
+  900px 400px red,
+  1200px 250px white,
+  1400px 600px red;
+
+  animation:floatParticles 15s linear infinite;
+}
+
+@keyframes floatParticles{
+
+  0%{
+    transform:translateY(100vh);
+  }
+
+  100%{
+    transform:translateY(-100vh);
+  }
+}
+
+/* Waves */
+
+.wave{
+  position:fixed;
+  width:200%;
+  height:250px;
+  left:0;
+  background:rgba(255,0,0,0.06);
+  border-radius:45%;
+  z-index:-2;
+}
+
+.wave1{
+  bottom:-120px;
+  animation:waveMove 12s linear infinite;
+}
+
+.wave2{
+  bottom:-140px;
+  animation:waveMoveReverse 8s linear infinite;
+}
+
+.wave3{
+  bottom:-160px;
+  animation:waveMove 6s linear infinite;
+}
+
+@keyframes waveMove{
+
+  0%{
+    transform:translateX(0);
+  }
+
+  100%{
+    transform:translateX(-500px);
+  }
+}
+
+@keyframes waveMoveReverse{
+
+  0%{
+    transform:translateX(-500px);
+  }
+
+  100%{
+    transform:translateX(0);
+  }
+}
+
+/* Cursor Glow */
+
+.cursor-glow{
+  position:fixed;
+  width:180px;
+  height:180px;
+  background:rgba(255,0,0,0.12);
+  border-radius:50%;
+  filter:blur(70px);
+  pointer-events:none;
+  z-index:999;
+  transform:translate(-50%,-50%);
+}
+
+/* Navbar */
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:22px 40px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:rgba(0,0,0,0.4);
+  backdrop-filter:blur(10px);
+
+  z-index:1000;
+}
+
+.logo-box{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.mini-logo{
+  width:38px;
+  height:38px;
+  background:red;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-weight:900;
+  color:white;
+}
+
+.logo-box h2{
+  font-family:'Bebas Neue', sans-serif;
+  letter-spacing:2px;
+  font-size:35px;
+
+  text-shadow:
+  0 0 10px red,
+  0 0 20px red;
+}
+
+nav ul{
+  display:flex;
+  gap:40px;
+  list-style:none;
+}
+
+nav ul li a{
+  text-decoration:none;
+  color:white;
+  text-transform:uppercase;
+  font-size:14px;
+  letter-spacing:2px;
+  transition:0.4s;
+}
+
+nav ul li a:hover{
+  color:red;
+}
+
+.join-btn{
+  padding:14px 28px;
+  border:none;
+  background:red;
+  color:white;
+  cursor:pointer;
+
+  letter-spacing:2px;
+  font-weight:700;
+
+  transition:0.4s;
+}
+
+.join-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px red;
+}
+
+/* Hero */
+
+.hero{
+  min-height:100vh;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+  padding:120px 8%;
+  background-image: url(images/spider-mannew.png);
+  background-size:cover;
+  background-position:center;
+  background-repeat: no-repeat;
+
+  position:relative;
+}
+
+.hero-content span{
+  color:red;
+  letter-spacing:5px;
+  font-size:13px;
+}
+
+.hero-content h1{
+  font-size:220px;
+  font-family:'Bebas Neue', sans-serif;
+  line-height:0.9;
+
+  margin:30px 0;
+
+  color:white;
+
+  text-shadow:
+  0 0 10px red,
+  0 0 25px red,
+  0 0 60px red;
+}
+
+.hero-content h2{
+  letter-spacing:4px;
+  margin-bottom:25px;
+}
+
+.hero-content p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.9;
+  color:#bdbdbd;
+  margin-bottom:40px;
+}
+
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+  padding:18px 35px;
+  border:none;
+  cursor:pointer;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  transition:0.4s;
+}
+
+.primary-btn{
+  background:red;
+  color:white;
+}
+
+.secondary-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.3);
+  color:white;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+  transform:translateY(-5px);
+}
+
+/* Stats */
+
+.stats{
+  margin-top:70px;
+
+  display:flex;
+  justify-content:center;
+  gap:80px;
+  flex-wrap:wrap;
+}
+
+.stat-box h3{
+  color:red;
+  font-size:60px;
+  font-family:'Bebas Neue', sans-serif;
+}
+
+.stat-box p{
+  letter-spacing:3px;
+  font-size:12px;
+  text-transform:uppercase;
+}
+
+/* Sections */
+
+.characters-section,
+.comics-feed{
+  padding:120px 8%;
+  position:relative;
+}
+
+.section-heading,
+.feed-heading{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.section-heading span,
+.feed-heading span{
+  color:red;
+  letter-spacing:4px;
+  font-size:12px;
+}
+
+.section-heading h2,
+.feed-heading h2{
+  font-size:90px;
+  font-family:'Bebas Neue', sans-serif;
+  margin-top:20px;
+}
+
+.feed-heading h2 span{
+  color:red;
+}
+
+.feed-heading p{
+  margin-top:15px;
+  color:#bdbdbd;
+}
+
+/* Character Grid */
+
+.character-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.character-card{
+  position:relative;
+
+  background:rgba(255,255,255,0.03);
+
+  border:1px solid rgba(255,0,0,0.15);
+
+  backdrop-filter:blur(10px);
+
+  overflow:hidden;
+
+  transition:0.5s;
+}
+
+.character-card:hover{
+  transform:translateY(-10px);
+
+  box-shadow:
+  0 0 20px rgba(255,0,0,0.2),
+  0 0 40px rgba(255,0,0,0.1);
+}
+
+.character-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+}
+
+.tag{
+  position:absolute;
+  top:15px;
+  left:15px;
+
+  background:red;
+  padding:8px 14px;
+
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+.card-content{
+  padding:25px;
+}
+
+.card-content span{
+  color:#bdbdbd;
+  font-size:12px;
+  letter-spacing:3px;
+}
+
+.card-content h3{
+  font-size:45px;
+  font-family:'Bebas Neue', sans-serif;
+  margin-top:12px;
+}
+
+/* Comics Feed */
+
+.curve-top{
+  position:absolute;
+  top:-120px;
+  left:0;
+
+  width:100%;
+  height:250px;
+
+  background:linear-gradient(to right,#5a0000,#a00000);
+
+  border-radius:50%;
+  filter:blur(20px);
+
+  z-index:-1;
+}
+
+.comics-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.comic-card{
+  position:relative;
+
+  overflow:hidden;
+
+  border:1px solid rgba(255,0,0,0.15);
+
+  background:rgba(255,255,255,0.03);
+
+  backdrop-filter:blur(10px);
+
+  transition:0.5s;
+}
+
+.comic-card:hover{
+  transform:translateY(-10px);
+}
+
+.comic-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+}
+
+.comic-badge{
+  position:absolute;
+  top:15px;
+  left:15px;
+
+  background:red;
+  padding:8px 15px;
+
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+/* Footer */
+
+footer{
+  padding:80px 8%;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-logo{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+
+  margin-bottom:30px;
+}
+
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+
+  margin-bottom:20px;
+}
+
+.footer-links a{
+  color:white;
+  text-decoration:none;
+}
+
+footer p{
+  color:#9e9e9e;
+}
+
+/* Scroll Animation */
+
+.hidden{
+  opacity:0;
+  transform:translateY(80px);
+  transition:1s ease;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+  .hero-content h1{
+    font-size:140px;
+  }
+
+  .section-heading h2,
+  .feed-heading h2{
+    font-size:65px;
+  }
+}
+
+@media(max-width:768px){
+
+  nav{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero-content h1{
+    font-size:90px;
+  }
+
+  .hero-content h2{
+    font-size:20px;
+  }
+
+  .stats{
+    gap:40px;
+  }
+
+  .section-heading h2,
+  .feed-heading h2{
+    font-size:50px;
+  }
+}
+/* Timeline */
+
+.timeline-section{
+  padding:120px 8%;
+}
+
+.timeline{
+  position:relative;
+  margin-top:80px;
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  width:4px;
+  height:100%;
+  background:red;
+  transform:translateX(-50%);
+}
+
+.timeline-item{
+  position:relative;
+  width:50%;
+  padding:40px;
+}
+
+.timeline-item:nth-child(odd){
+  left:0;
+  text-align:right;
+}
+
+.timeline-item:nth-child(even){
+  left:50%;
+}
+
+.timeline-dot{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:red;
+  border-radius:50%;
+
+  top:50px;
+
+  box-shadow:
+  0 0 10px red,
+  0 0 25px red;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{
+  right:-12px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot{
+  left:-8px;
+}
+
+.timeline-content{
+  background:rgba(255,255,255,0.04);
+
+  border:1px solid rgba(255,0,0,0.2);
+
+  backdrop-filter:blur(10px);
+
+  padding:30px;
+
+  border-radius:20px;
+}
+
+.timeline-content span{
+  color:red;
+  font-size:14px;
+  letter-spacing:3px;
+}
+
+.timeline-content h3{
+  margin:15px 0;
+  font-size:35px;
+  font-family:'Bebas Neue', sans-serif;
+}
+
+/* Movies Section */
+
+.movies-section{
+  padding:120px 8%;
+}
+
+.movies-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+}
+
+.movie-card{
+  perspective:1000px;
+}
+
+.movie-card-inner{
+  position:relative;
+  width:100%;
+  height:450px;
+
+  transition:transform 0.8s;
+
+  transform-style:preserve-3d;
+}
+
+.movie-card:hover .movie-card-inner{
+  transform:rotateY(180deg);
+}
+
+.movie-front,
+.movie-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+
+  backface-visibility:hidden;
+
+  border-radius:20px;
+  overflow:hidden;
+
+  border:1px solid rgba(255,0,0,0.2);
+
+  background:rgba(255,255,255,0.04);
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:
+  0 0 20px rgba(255,0,0,0.15);
+}
+
+.movie-front img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.movie-back{
+  transform:rotateY(180deg);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+  padding:30px;
+}
+
+.movie-back h3{
+  font-size:45px;
+  color:red;
+  margin-bottom:20px;
+
+  font-family:'Bebas Neue', sans-serif;
+}
+
+.movie-back p{
+  margin:10px 0;
+  color:#d4d4d4;
+}
+
+/* Character Modal */
+
+.character-modal{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,0.75);
+
+  display:none;
+
+  justify-content:center;
+  align-items:center;
+
+  z-index:99999;
+}
+
+.modal-box{
+  width:90%;
+  max-width:950px;
+
+  display:grid;
+  grid-template-columns:1fr 1fr;
+
+  background:#111;
+
+  border:1px solid rgba(255,0,0,0.2);
+
+  border-radius:20px;
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+.modal-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.modal-info{
+  padding:50px;
+}
+
+.modal-info h2{
+  font-size:60px;
+  color:red;
+
+  font-family:'Bebas Neue', sans-serif;
+
+  margin-bottom:20px;
+}
+
+.modal-info p{
+  line-height:1.8;
+  color:#d4d4d4;
+}
+
+.modal-details{
+  margin-top:25px;
+}
+
+.close-modal{
+  position:absolute;
+  top:15px;
+  right:25px;
+
+  font-size:35px;
+  cursor:pointer;
+
+  color:white;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .timeline::before{
+    left:10px;
+  }
+
+  .timeline-item{
+    width:100%;
+    left:0 !important;
+    padding-left:50px;
+    text-align:left !important;
+  }
+
+  .timeline-dot{
+    left:0 !important;
+  }
+
+  .modal-box{
+    grid-template-columns:1fr;
+  }
+
+  .modal-info{
+    padding:30px;
+  }
+
+  .modal-info h2{
+    font-size:40px;
+  }
+}
